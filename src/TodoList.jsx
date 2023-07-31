@@ -45,7 +45,7 @@ const TodoList = () => {
         <ul>
             {tasks.map((task) => (
                 <li className='task_item' key={task.id}>
-                    <input type="checkbox" id={task.id}/>
+                    <input type="checkbox" id={task.id} onClick={() => handleTaskCompletion(task.id)}/>
                     <label 
                         htmlFor={task.id}
                         className={task.completed ? 'completed' : ''}
