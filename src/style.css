@@ -79,6 +79,7 @@ li{
 label{
   margin-left: 5px;
   margin-right: 16px;
+  /* text-decoration: line-through; */
 }  
 
 .delete{
@@ -86,3 +87,6 @@ label{
   font-size: small;
 }
 
+.completed {
+  text-decoration: line-through;
+}

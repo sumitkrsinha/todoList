@@ -16,6 +16,13 @@ const TodoList = () => {
         setNewtask('');
     };
 
+    const handleTaskCompletion = (taskId) => {
+        const updatedTasks = tasks.map((task) =>
+          task.id === taskId ? { ...task, completed: !task.completed } : task
+        );
+        setTasks(updatedTasks);
+      };
+
   return (
     <div className="full_body">
         <h1>TodoList</h1>
@@ -33,8 +40,11 @@ const TodoList = () => {
         <ul>
             {tasks.map((task) => (
                 <li className='task_item' key={task.id}>
-                    <input type="checkbox" id={task.id} className='chkbx'/>
-                    <label htmlFor={task.id}>{task.text}</label>
+                    <input type="checkbox" id={task.id}/>
+                    <label 
+                        htmlFor={task.id}
+                        className={task.completed ? 'completed' : ''}
+                        onClick={() => handleTaskCompletion(task.id)}>{task.text}</label>
                     <button className="delete">Delete</button>
                 </li>
             ))}
