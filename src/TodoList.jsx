@@ -3,8 +3,18 @@ import "./style.css";
 
 const TodoList = () => {
 
-    // const[tasks, setTasks] = useState( [] );
+    const[tasks, setTasks] = useState( [] );
     const[newtask, setNewtask] = useState('');
+
+    const addTask = () => {
+        if (newtask.trim() === ''){
+            alert("Enter valid task");
+            return;
+        }
+        setTasks( [...tasks,{id: Date.now(), text:newtask, completed:false}]);
+        console.log(tasks[0]);
+        setNewtask('');
+    };
 
   return (
     <div className="full_body">
@@ -18,9 +28,17 @@ const TodoList = () => {
                 onChange={(e) => {
                     setNewtask(e.target.value)
                 }}/>
-            <button>Add</button>    
+            <button className='add' onClick={addTask}>Add</button>    
         </div>
-        <p>{newtask}</p>
+        <ul>
+            {tasks.map((task) => (
+                <li className='task_item' key={task.id}>
+                    <input type="checkbox" id={task.id} className='chkbx'/>
+                    <label htmlFor={task.id}>{task.text}</label>
+                    <button className="delete">Delete</button>
+                </li>
+            ))}
+        </ul>
     </div>
   )
 }
