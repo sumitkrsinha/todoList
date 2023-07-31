@@ -23,6 +23,11 @@ const TodoList = () => {
         setTasks(updatedTasks);
       };
 
+    const handleRemoveTask = (taskId) => {
+        const updatedTasks = tasks.filter((task) => task.id !== taskId);
+        setTasks(updatedTasks);
+      };  
+
   return (
     <div className="full_body">
         <h1>TodoList</h1>
@@ -45,7 +50,9 @@ const TodoList = () => {
                         htmlFor={task.id}
                         className={task.completed ? 'completed' : ''}
                         onClick={() => handleTaskCompletion(task.id)}>{task.text}</label>
-                    <button className="delete">Delete</button>
+                    <button 
+                        className="delete"
+                        onClick={() => handleRemoveTask(task.id)}>Delete</button>
                 </li>
             ))}
         </ul>
