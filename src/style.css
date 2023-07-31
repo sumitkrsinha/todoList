@@ -21,7 +21,7 @@
 
 .form{
   background-color: #fff;
-  margin: 0rem;
+  margin: 1rem 0;
   padding: 16px;
   height: 12rem;
   width: 25rem;
@@ -89,4 +89,26 @@ label{
 
 .completed {
   text-decoration: line-through;
+}
+
+
+@media screen and (max-width: 420px) {
+  .form {
+    width: 100%;
+    padding: 12px;
+  }
+
+  .task_input {
+    width: 80%;
+    font-size: 12px;
+  }
+
+  .add {
+    width: 55px;
+    font-size: 12px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
 }
